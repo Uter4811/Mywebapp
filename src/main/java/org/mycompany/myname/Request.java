@@ -30,6 +30,7 @@ public class Request {
 
         body = XMLReader.read(bodyPath);
 
+    //    new SAXExample.XMLHandler().startElement("l", "lk", "jk", atts);
     }
     public void action() throws IOException {
         String responseString = bodyPath;
@@ -39,7 +40,7 @@ public class Request {
         URLConnection connection = url.openConnection();
         HttpURLConnection httpConn = (HttpURLConnection) connection;
         ByteArrayOutputStream bout = new ByteArrayOutputStream();
-        String xmlInput = "<soapenv:Envelope xmlns:soapenv=";//schemas.xmlsoap.org/soap/envelope/"><soapenv:Header/><soapenv:Body><getUserDetailsRequest xmlns="https://www.roytuts.com/UserService"><name>Liton Sarkar</name></getUserDetailsRequest></soapenv:Body></soapenv:Envelope>";
+        String xmlInput = "<soapenv:Envelope xmlns:soapenv="//schemas.xmlsoap.org/soap/envelope/"><soapenv:Header/><soapenv:Body><getUserDetailsRequest xmlns="https://www.roytuts.com/UserService"><name>Liton Sarkar</name></getUserDetailsRequest></soapenv:Body></soapenv:Envelope>";
 
         buffer = new byte[xmlInput.length()];
         byte[] buffer = xmlInput.getBytes();

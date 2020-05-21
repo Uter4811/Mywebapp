@@ -1,12 +1,37 @@
 package org.mycompany.myname;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+
 
 public class XMLReader {
     public static String read(String bodePath) throws IOException {
-        FileReader reader = new FileReader("c:/data.xml");
+        String line = null;
+        try {
+            File file = new File(bodePath);
+            //создаем объект FileReader для объекта File
+            FileReader fr = new FileReader(file);
+            //создаем BufferedReader с существующего FileReader для построчного считывания
+            BufferedReader reader = new BufferedReader(fr);
+            // считаем сначала первую строку
+             line = reader.readLine();
+            while (line != null) {
+                System.out.println(line);
+                // считываем остальные строки в цикле
+                line = reader.readLine();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return line;
+    }
+
+
+
+
+
+      /*  FileReader reader = new FileReader("c:/data.xml");
         FileWriter writer = new FileWriter(bodePath);
 
         while (reader.ready()) //пока есть непрочитанные байты в потоке ввода
@@ -17,7 +42,7 @@ public class XMLReader {
         reader.close();
         writer.close();
 
-        return bodePath;
+        return bodePath;*/
     }
 
 }
