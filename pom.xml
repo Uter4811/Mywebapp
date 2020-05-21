@@ -77,22 +77,9 @@
   </dependencyManagement>
 
     <!-- Spring MVC -->
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-webmvc</artifactId>
-    </dependency>
 
-    <dependency>
-      <groupId>org.apache.cxf</groupId>
-      <artifactId>cxf-rt-frontend-jaxws</artifactId>
-      <version>${cxf-rt-frontend-jaxws.version}</version>
-    </dependency>
 
-    <dependency>
-      <groupId>org.apache.cxf</groupId>
-      <artifactId>cxf-rt-transports-http</artifactId>
-      <version>${cxf-rt-frontend-jaxws.version}</version>
-    </dependency>
+
 
     <build>
         <plugins>

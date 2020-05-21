@@ -11,7 +11,6 @@ import java.net.URLConnection;
 import java.nio.charset.Charset;
 import org.xml.sax.SAXException;
 
-import org.xml.sax.Attributes;
 
 
 public class Request {
@@ -24,26 +23,23 @@ public class Request {
         this.endPoint = endPoint;
         this.bodyPath = bodyPath;
     }
-    Attributes atts;
+
 
     public  void init() throws SAXException, IOException {
 
         body = XMLReader.read(bodyPath);
 
-    //    new SAXExample.XMLHandler().startElement("l", "lk", "jk", atts);
     }
     public void action() throws IOException {
-        String responseString = bodyPath;
-        String outputString = endPoint;
-        String wsEndPoint = body;
-        URL url = new URL(wsEndPoint);
+        String responseString = "";
+        String outputString = "";
+        URL url = new URL(endPoint);
         URLConnection connection = url.openConnection();
         HttpURLConnection httpConn = (HttpURLConnection) connection;
         ByteArrayOutputStream bout = new ByteArrayOutputStream();
-        String xmlInput = "<soapenv:Envelope xmlns:soapenv="//schemas.xmlsoap.org/soap/envelope/"><soapenv:Header/><soapenv:Body><getUserDetailsRequest xmlns="https://www.roytuts.com/UserService"><name>Liton Sarkar</name></getUserDetailsRequest></soapenv:Body></soapenv:Envelope>";
 
-        buffer = new byte[xmlInput.length()];
-        byte[] buffer = xmlInput.getBytes();
+        buffer = new byte[body.length()];
+        byte[] buffer = body.getBytes();
         bout.write(buffer);
         byte[] b = bout.toByteArray();
         String SOAPAction = "getUserDetails";
