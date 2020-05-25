@@ -20,7 +20,7 @@ import org.xml.sax.SAXException;
    // String body;// содержимое хмл
     public class Request {
         public static void main(String[] args) throws IOException {
-            Request request = new Request("C:\\Users\IdeaProjects\\MyWS\\TestData.txt", "http://localhost:8080/app");
+            Request request = new Request("C:\\Users\\Антон\\IdeaProjects\\TestData.txt", "http://localhost:8081/app");
             request.init();
             request.action();
         }
@@ -34,7 +34,7 @@ import org.xml.sax.SAXException;
         }
 
         //будет считываться шаблон сообщения.
-        public void init() throws IOException {
+        public void init() {
             body = XMLReader.read(bodyPath);
         }
         public void action() {
@@ -48,7 +48,7 @@ import org.xml.sax.SAXException;
             }
             byte[] buffer = body.getBytes();
             httpConn.setRequestProperty("Content-Length", String.valueOf(buffer.length));
-            httpConn.setRequestProperty("Content-Type", "text/xml; charset=utf-8");
+            httpConn.setRequestProperty("Content-Type", "application/soap+xml; charset=utf-8");
             try {
                 httpConn.setRequestMethod("POST");
             } catch (ProtocolException e) {
