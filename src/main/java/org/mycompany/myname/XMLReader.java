@@ -1,10 +1,33 @@
 package org.mycompany.myname;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 
 
 public class XMLReader {
-    public static String read(String bodePath) throws IOException {
+    public static String read(String bodyPath){
+        StringBuilder result = new StringBuilder();
+        List<String> lines = null;
+        try {
+            lines = Files.readAllLines(Paths.get(bodyPath), StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        for(String line: lines){
+            result.append(line).append(System.lineSeparator());
+        }
+        return result.toString();
+    }
+}
+
+
+
+
+
+      /*  public static String read(String bodePath) throws IOException {
         String line = null;
         try {
             File file = new File(bodePath);
@@ -25,24 +48,7 @@ public class XMLReader {
             e.printStackTrace();
         }
         return line;
-    }
-
-
-
-
-
-      /*  FileReader reader = new FileReader("c:/data.xml");
-        FileWriter writer = new FileWriter(bodePath);
-
-        while (reader.ready()) //пока есть непрочитанные байты в потоке ввода
-        {
-            int data = reader.read(); //читаем один символ (char будет расширен до int)
-            writer.write(data); //пишем один символ (int будет обрезан/сужен до char)
-        }
-        reader.close();
-        writer.close();
-
-        return bodePath;*/
-    }
+    }*/
+    
 
 
