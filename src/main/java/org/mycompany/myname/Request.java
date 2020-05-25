@@ -20,7 +20,7 @@ import org.xml.sax.SAXException;
    // String body;// содержимое хмл
     public class Request {
         public static void main(String[] args) throws IOException {
-            Request request = new Request("C:\\Users\\Sergey Sterligov\\IdeaProjects\\MyWS\\TestData.txt", "http://localhost:8080/app");
+            Request request = new Request("C:\\Users\IdeaProjects\\MyWS\\TestData.txt", "http://localhost:8080/app");
             request.init();
             request.action();
         }
