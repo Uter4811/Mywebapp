@@ -20,7 +20,7 @@ import org.xml.sax.SAXException;
    // String body;// содержимое хмл
     public class Request {
         public static void main(String[] args) throws IOException {
-            Request request = new Request("C:\\Users\\Антон\\IdeaProjects\\TestData.txt", "http://localhost:8081/app");
+            Request request = new Request("C:\\Users\\Антон\\IdeaProjects\\TestData.txt", "https://www.dataaccess.com/webservicesserver/NumberConversion.wso?op=NumberToWords");
             request.init();
             request.action();
         }
