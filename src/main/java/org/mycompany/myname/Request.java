@@ -20,9 +20,11 @@ import org.xml.sax.SAXException;
    // String body;// содержимое хмл
     public class Request {
         public static void main(String[] args) throws IOException {
-            Request request = new Request("C:\\Users\\Антон\\IdeaProjects\\TestData.txt", "https://www.dataaccess.com/webservicesserver/NumberConversion.wso?op=NumberToWords");
+            Request request = new Request("C:\\Games\\TestData.xml", "https://www.dataaccess.com/webservicesserver/NumberConversion.wso?op=NumberToWords");
             request.init();
             request.action();
+            Thread current = Thread.currentThread();
+            StackTraceElement[] methods = current.getStackTrace();
         }
         private String bodyPath;
         private String endPoint;
